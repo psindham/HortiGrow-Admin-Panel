@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:800|Roboto+Slab" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Sans&family=Original+Surfer&display=swap"
+    rel="stylesheet">
+
+
+
+    {{>style_add_product_SP}}
+  <!-- <link rel="stylesheet" href="../css/style_add_product_SP.css"> -->
+  <title>HortiGrow</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../Images/fav.ico">
+</head>
+
+<body>
+
+  <article class="container">
+
+    <!-- Navbar -->
+    <nav>
+      <ul>
+        <li><a href="/index">Home</a></li>
+        
+        <li><a href="#">Manage</a>
+            <ul class="dropdown">
+              <li><a href="/Index/manage_user">users</a></li>
+              <li><a href="/Index/manage_product">Products</a></li>
+            </ul>
+          
+        </li>
+        <li>
+            <a href="#">Reports</a>
+              <ul class="dropdown">
+                <li><a href="/Index/user_report">Users</a></li>
+                <li><a href="/Index/product_report">Products</a></li>
+                <li><a href="/Index/order_report">Orders</a></li>
+              </ul>
+          </li>
+       <li><a href="#"><i class="fa fa-user"></i></a>
+        <ul class="dropdown">
+                <li><a href="/Index/signIn">Logout</a></li>
+              </ul></li>
+      </ul>
+    </nav>
+
+    <!-- Responsive Navbar-->
+    <section class="menu-btn">
+      +
+    </section>
+
+    <!-- Main Heading-->
+    
+    <section class="section-follow">
+        <h3 class="follow-me">Add New Product</h3>
+      </section>
+
+
+    <section>
+        <section class="description">
+            <div class="Container">
+            <form method="POST" action="/Index/manage_product" id="update_user">
+            <input type="hidden" name="_id" value="{{product._id}}">
+                <div class="new_user">
+                    <div class="form-group">
+                        <label for="name" class="text-light">Product Name</label>
+                        
+                        <input type="hidden" name="id" value="">
+                        <input type="text" name="name" value="{{product.ProductName}}" placeholder="Product">
+                        <label for="Description" class="text-light">Product Description</label>
+                        <input type="text" name="description" value="{{product.ProductDescription}}" placeholder="xyz">
+                        <label for="in stock" class="text-light">Units in Stock</label>
+                        <input type="number" name="stock" value="{{product.ProductStock}}" placeholder="10">
+                        <label for="img" class="text-light">Upload Image</label>
+                        <input type="file" name="image" value="{{product.ProductImage}}" placeholder="">
+                        <label for="expiry" class="text-light">Expire Date</label>
+                          <input type="date" name="expire" value="{{product.ProductDate}}" placeholder="01/01/2001">
+                        <!-- <textarea rows="3" cols="15">hello</textarea> -->
+                        <label for="Description" class="text-light">Product Category</label>
+                        <select id="Category" name="Category">
+                            <option value="seedbeds">SeedBeds</option>
+                            <option value="seeds">Seeds</option>
+                            <option value="plants">plants</option>
+                          </select>
+                        <label for="Price" class="text-light">Product Price</label>
+                          <input type="number" name="price"  value="{{product.ProductPrice}}" placeholder="₹500">
+                    </div>
+                <div class="form-group">
+                    <button type="submit" class="btn text-dark update">Save</button>
+                </div>
+        
+            </div>
+            </form>
+        </div>
+        </section>
+    </section>
+
+
+    <!-- Footer-->
+    <footer>
+      HortiGrow &copy; 2021
+    </footer>
+
+  </article>
+
+  <script>
+    const menuBtn = document.querySelector(".menu-btn");
+const nav = document.querySelector("nav");
+
+menuBtn.addEventListener("click", function () {
+  menuBtn.classList.toggle("active");
+  nav.classList.toggle("active");
+})
+
+window.addEventListener("scroll", function () {
+  if (window.pageYOffset > 4) {
+    nav.classList.add("scrolled");
+  } else {
+    nav.classList.remove("scrolled");
+  }
+})
+  </script>
+
+</body>
+
+</html>

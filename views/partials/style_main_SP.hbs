@@ -1,0 +1,481 @@
+<style>
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+  }
+  
+  :root{
+    --dark: #dcedc8;
+    --light: #dcedc8;
+    --border: #black;
+    --border-btn: #edf2f4;
+}
+
+.text-dark{
+    color: var(--dark);
+}
+  p {
+    line-height: 2;
+  }
+  
+  html 
+  {
+    scroll-behavior: smooth;
+  }
+  
+  /* Navigation menu */
+  nav {
+    z-index: 10;
+    padding: 24px 16px;
+    font-family: "Raleway";
+    /* position: fixed; */
+    width: 100%;
+    transition: 0.6s;
+  }
+  
+  nav {
+    background: #172830;
+    box-shadow: 0px 4px 4px 0px rgba(50, 50, 50, 0.1);
+  }
+  
+  /* nav {
+    height: 70px;
+  } */
+  
+  nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+  }
+  
+  nav ul a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 100px;
+    font-family: "Cormorant Garamond", serif;
+    margin: 0 28px;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  
+  /* Menu Icon */
+  .menu-btn {
+    display: none;
+  }
+  
+  
+  .dropdown {
+    float: left;
+    background-color: #172830;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: #172830;
+    font-family: inherit;
+    margin: 0;
+  }
+
+/*  add user & update user template */
+.form-title{
+    margin-top: 2em;
+}
+
+.form-title > h2{
+    padding: .5em 0;
+}
+
+.new_user{
+    max-width: 786px;
+    margin: auto;
+}
+
+#update_user .form-group,
+#add_user .form-group{
+    margin: .4em 0;
+}
+
+
+
+
+#update_user .form-group input[type="text"],
+#add_user .form-group input[type="text"],#update_user .form-group input[type="number"],
+#add_user .form-group input[type="number"],#add_user .form-group input[type="file"],
+#update_user .form-group input[type="file"],
+#update_user .form-group input[type="date"],
+#add_user .form-group input[type="date"],#update_user .form-group input[type="email"],
+#add_user .form-group input[type="email"]{
+    width: 100%;
+    padding: .6em 1em;
+    margin: .5em 0;
+    border: 1px solid var(--border);
+    font-family: 'Barlow', sans-serif;
+    font-size: 1em;
+    border-radius: .2em;
+}
+
+#Category{
+    width: 100%;
+    padding: .6em 1em;
+    margin: .5em 0;
+    border: 1px solid var(--border);
+    font-family: 'Barlow', sans-serif;
+    font-size: 1em;
+    border-radius: .2em;
+}
+
+#update_user .form-group .radio,
+#add_user .form-group .radio{
+    margin: 1em 2em;
+}
+
+/* adding style to radio buttons */
+.radio input[type='radio']{
+    position: absolute;
+    opacity: 0;
+}
+
+.radio input[type='radio'] + .radio-label:before{
+    content: "";
+    background: var(--border-btn);
+    border-radius: 100%;
+    border: 1px solid var(--border);
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    top: -0em;
+    margin-right: .5em;
+    vertical-align: top;
+    cursor: pointer;
+    text-align: center;
+    -webkit-transition: all 250ms ease;
+    transition: all 250ms ease;
+}
+
+.radio input[type='radio']:checked + .radio-label:before{
+    background-color: #16db93;
+    box-shadow: inset 0 0 0 4px #e9ecef;
+}
+
+.radio input[type='radio']:focus + .radio-label:before{
+    outline: none;
+    border-color:#16db93;
+}
+
+.radio input[type='radio']:disabled + .radio-label:before{
+    box-shadow: inset 0 0 0 4px #e9ecef;
+    border-color: #b4b4b4;
+    background: #b4b4b4;
+}
+
+#update_user .form-group .btn,
+#add_user .form-group .btn{
+    width: 100%;
+    padding: .9em 1em;
+    background-color:#2b2d42; 
+    border: none;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: .2em;
+    margin: .5em 0;
+}
+
+#update_user .form-group .btn:hover,
+#add_user .form-group .btn:hover{
+    background-color: var(--dark);
+    color: var(--border);
+}
+
+
+
+  nav.scrolled + .logo img {
+    height: 60px;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+  }
+  
+  nav ul a {
+    text-decoration: none;
+    color:#fff;
+    font-weight: 100px;
+    font-family: 'Cormorant Garamond', serif;
+    margin:0 28px;
+    font-size:16px;
+    text-transform: uppercase;
+  }
+  
+
+/* DropDown */
+
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+  
+  li {
+    color: #fff;
+    display: block;
+    float: left;
+    padding: 1rem;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+  }
+    
+  li a {
+    color: #fff;
+  }
+  
+  li:hover {
+    background: grey;
+    color: black;
+    cursor: pointer;
+  }
+  
+  ul li ul {
+    visibility: hidden;
+    opacity: 0;
+    min-width: 5rem;
+    position: absolute;
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+    left: 0;
+    display: none;
+  }
+  
+  ul li:hover > ul,
+  ul li ul:hover {
+    visibility: visible;
+    color:black;
+    opacity: 1;
+    display: block;
+  }
+  
+  ul li ul li {
+    clear: both;
+    width: 100%;
+  }
+
+
+  /* Header */
+  
+  header {
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:url("/plant_img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    color:#fff;
+    font-weight: 20;
+    font-size:120px;
+  }
+  
+  /* Sections */
+  
+  section {
+    height:600px;
+    display: flex;
+  }
+  
+  .section-follow {
+    height:160px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .section-follow .follow-me:after {
+    content:'';
+    position: absolute;
+    left:0; right: 0;
+    width:150px;
+    height:44px;
+    margin: 0 auto;
+    border-bottom: 1px solid #929292;
+  }
+  
+  section h3 {
+    font-family: "Raleway";
+    font-size:32px;
+    padding: 16px 0;
+  }
+  
+  section:nth-child(2n) {
+    flex-direction: row-reverse;
+    color:#000;
+  }
+  
+  section p {
+    font-family: 'Roboto Slab';
+  }
+  
+  section .description,
+  section .image {
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding:32px;
+    justify-content: center;
+  }
+  
+  section .image img {
+    height:340px;
+  }
+  
+  section .image {
+    border-radius: 160px;
+    overflow: hidden;
+    transition: 1s;
+  }
+  
+  section .image:hover {
+    transform: scale(1.04);
+  }
+  
+
+  .Container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    margin-top: -50px;
+  }
+
+
+
+  /* Footer */
+  
+  footer {
+    padding:32px 0;
+    background:#dcedc8;
+    color:#000;
+    margin-top: 20px;
+    font-family: 'Raleway';
+    text-align: center;
+  }
+  
+  .menu-btn {
+    display: none;
+  }
+  
+  
+  /* Media Queries */
+  
+  @media(max-width:900px) {
+    header h1 {
+      font-size: 72px;
+    }
+  
+    nav {
+        
+    display: flex;
+    height: 100vh;
+    transform: scaleY(0) translateY(1200px);
+    background: #172830;
+    transition: 0.4s;
+    position: fixed;
+    }
+  
+    nav.active {
+      transform:scaleY(1) translateY(0px);
+    }
+  
+    nav ul {
+      margin:0 auto;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    nav ul li {
+      padding: 42px 0;
+    }
+  
+    nav li a {
+      font-size:20px;
+      position: relative;
+    }
+  
+    nav li a:after {
+      content:'';
+      position: absolute;
+      left:0;
+      right:0;
+      height:24px;
+      width:60%;
+      margin: 0 auto;
+      border-bottom: 1px solid black;
+    }
+  
+    /* Follow Me Section */
+  
+    .section-follow .follow-me:after {
+      width:40%;
+      height:30%;
+    }
+  
+    /* Sections */
+  
+    section h3 {
+      font-size:24px;
+    }
+  
+    section {
+      flex-direction: column;
+      height:auto;
+      text-align: center;
+    }
+  
+    section:nth-child(2n) {
+      flex-direction: column;
+    }
+  
+    section .image img {
+      margin:0 auto;
+      width:95%;
+      height:auto;
+    }
+  
+    /* Menu Icon */
+    .menu-btn {
+      z-index:10;
+      color:#474747;
+      display:block;
+      position: fixed;
+      right:16px; top: 16px;
+      font-size:64px;
+      transition:.4s;
+      font-family:'Roboto Slab';
+      cursor: pointer;
+      transform:rotate(0deg);
+    }
+  
+    .menu-btn.active {
+      transform:rotate(45deg);
+    }
+  }
+
+  </style>
